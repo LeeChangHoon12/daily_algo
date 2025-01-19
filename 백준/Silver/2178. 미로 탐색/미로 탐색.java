@@ -85,6 +85,9 @@ public class Main {
                 que.add(new Pos(next_x,next_y));
                 visit[next_x][next_y] = true;
                 map[next_x][next_y] = map[current_x][current_y] + 1;
+                if(next_x == N && next_y == M){
+                    return;
+                }
 
             }
         }
