@@ -37,7 +37,7 @@ public class Main {
             posX = pos.get(c)[0];
             posY = pos.get(c)[1];
 
-            if(posX < 0 || posX >= N || posY < 0 || posY >= N){
+            if(posX < 0 || posX >= height || posY < 0 || posY >= width){
                 continue;
             }
 
