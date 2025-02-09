@@ -20,7 +20,7 @@ public class Main {
         arr[N-1] = 1;
 
 
-        int result = 0;
+        long result = 0;
 
         for(int i=N-1; i>=1; i--){
             if(arr[i] >= arr[i-1]){
