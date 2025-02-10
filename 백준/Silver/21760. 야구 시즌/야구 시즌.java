@@ -1,58 +1,58 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.Buffer;
+import java.util.StringTokenizer;
 
 public class Main {
+
     static int T;
-    static int ans[];
-    static Queue<Game> games = new LinkedList<>();
 
-    static class Game {
-        int n, m, k, d;
+    static int M;
+    static int N;
+    static int k;
+    static int D;
 
-        Game(int n, int m, int k, int d) {
-            this.n = n;
-            this.m = m;
-            this.k = k;
-            this.d = d;
-        }
-    }
+    static int A;
+    static int B;
 
     public static void main(String[] args) throws IOException {
-
-        input(); // 입력
-        play(); // 야구 시즌 시작
-
-        for (int t = 0; t < T; t++)
-            System.out.println(ans[t]);
-    }
-
-    static void input() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
 
         T = Integer.parseInt(br.readLine());
-        for (int t = 0; t < T; t++) {
-            st = new StringTokenizer(br.readLine());
-            games.add(new Game(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
+        for(int t=0; t<T; t++){
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            N = Integer.parseInt(st.nextToken());
+            M = Integer.parseInt(st.nextToken());
+            k = Integer.parseInt(st.nextToken());
+            D = Integer.parseInt(st.nextToken());
+
+            System.out.println(games(N,M,k,D));
+
         }
-        ans = new int[T];
     }
 
-    static void play() {
-        int idx = 0;
-        while (!games.isEmpty()) {
-            Game g = games.poll();
+    public static int games(int N,int M,int k,int D){
 
-            int same = g.n * (g.m * (g.m - 1) / 2); // 같은 리그
-            int diff = g.n * (g.n - 1) / 2 * (int)Math.pow(g.m, 2); // 다른 리그
+        int result = 0;
+        B = 1;
 
-            int B = g.d / (g.k * same + diff);
+        while(true){
+            A= k * B;
 
-            if (B == 0) // 해가 존재하지 않는 경우
-                ans[idx++] = -1;
-            else {
-                int A = g.k * B;
-                ans[idx++] = A * same + B * diff;
+            int count1 = M * (M-1)/2 * N * A;
+            int count2 = N * (N-1)/2 * M * M * B;
+
+            if( count1 + count2 <= D) {
+                result = Math.max(count1 + count2,result);
+                B++;
+            }else{
+
+                if(B == 1){
+                    return -1;
+                }
+                return result;
             }
         }
     }
