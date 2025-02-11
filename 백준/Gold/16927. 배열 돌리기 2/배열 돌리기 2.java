@@ -1,5 +1,4 @@
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,7 +6,7 @@ import java.util.StringTokenizer;
 
 public class Main {
 	static int[][] map;
-	static boolean[][] visited;
+	//static boolean[][] visited;
 	static int N;
 	static int M;
 	static int R;
@@ -59,7 +58,7 @@ public class Main {
 		for(int r=0; r<rotate; r++) {
 
 
-			visited = new boolean[N][M];
+			//visited = new boolean[N][M];
 			
 			int cnt = 0;
 			
@@ -71,10 +70,10 @@ public class Main {
 			
 			//한칸씩 돌리기 
 			while (cnt < 4) {
-				if (visited[row][col]) {
-					break;
-				}
-				visited[row][col] = true;
+				//if (visited[row][col]) {
+					//break;
+				//}
+				//visited[row][col] = true;
 
 				int nextR = row + dirR[cnt % 4];
 				int nextC = col + dirC[cnt % 4];
