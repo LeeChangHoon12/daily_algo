@@ -37,16 +37,6 @@ public class Main {
     	return;
     }
 
-//    
-//    
-//    
-//    
-//    for(int i=0; i<K;i++){
-//        System.out.print(arrK[i] + " ");
-//    }
-//    System.out.println();
-    
-
     while(true){
     	if((N - K) < 0) {
     		break;
@@ -56,39 +46,10 @@ public class Main {
         }
         N = N-K;
     }
-//    
-//    for(int i=0; i<K;i++){
-//        System.out.print(arrK[i] + " ");
-//    }
-//    System.out.println();
-//
-//    System.out.println(N);
+
     arrK[(K-N)%K] += N;
 
-
-    for(int i=0; i<K-1; i++){
-        if(arrK[i] == arrK[i+1]){
-            System.out.println(-1);
-            return;
-        }
-    }
-
-//    for(int i=0; i<K;i++){
-//        System.out.print(arrK[i] + " ");
-//    }
-//    System.out.println();
-
-
     Arrays.sort(arrK);
-    //System.out.println(N);
-
-
-//
-//    for(int i=0; i<K;i++){
-//        System.out.print(arrK[i] + " ");
-//    }
-//    System.out.println();
-
 
     System.out.println(Math.abs(arrK[0] - arrK[K-1]));
 
