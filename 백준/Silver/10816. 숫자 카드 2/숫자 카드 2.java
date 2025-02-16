@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -19,24 +20,56 @@ public class Main {
 
 		for(int i=0; i<N; i++) {
 			int target = Integer.parseInt(st.nextToken());
-			if(target >= 0) {
-				cntPlus[target]++;
-			}else {
-				cntMinus[target*-1]++;
-			}
+			arr[i] = target;
 		}
+
+		Arrays.sort(arr);
 		
 		M = Integer.parseInt(br.readLine());
 		st = new StringTokenizer(br.readLine());
+		StringBuilder sb = new StringBuilder();
 		for(int i=0; i<M; i++) {
 			int target = Integer.parseInt(st.nextToken());
-			if(target >= 0) {
-				System.out.print(cntPlus[target] + " ");
+			
+			sb.append(upperbound(target) - lowerbound(target) + " ");
+		}
+		
+		System.out.println(sb);
+		
+	}
+	
+	public static int lowerbound(int target) {
+	
+		int st = 0;
+		int en = N;
+		
+		while(st < en) {
+			int mid =(st+en)/2;
+			if(arr[mid] >= target) {
+				en = mid;
 			}else {
-				System.out.print(cntMinus[target*-1] + " ");
+				st = mid+1;
+			}
+		}
+		return st;
+	}
+	
+	public static int upperbound(int target) {
+		
+		int st = 0;
+		int en = N;
+		
+		while(st < en) {
+			int mid = (st+en)/2;
+			if(arr[mid] > target) {
+				en = mid;
+			}else{				
+				st = mid+1;
 			}
 		}
 		
+		return st;
 	}
+	
 
 }
