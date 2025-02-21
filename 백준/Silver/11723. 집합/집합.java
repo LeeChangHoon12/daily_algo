@@ -70,7 +70,7 @@ public class Main {
 	}
 	
 	public static void all() {
-		S = Integer.MAX_VALUE;
+		S = 1048575;
 	}
 	
 	public static void empty() {
