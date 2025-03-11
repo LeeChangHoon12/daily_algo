@@ -10,6 +10,7 @@ public class Solution {
     public static void main(String[] args) throws Exception {
 
         int T = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
 
         for(int tc=1; tc<=T; tc++){
             input();
@@ -37,9 +38,11 @@ public class Solution {
                 price = K * K + (K - 1) * (K - 1);
             }
 
-            System.out.println("#" + tc + " " + result);
+            //System.out.println("#" + tc + " " + result);
+            sb.append("#" + tc + " " + result + "\n");
 
         }
+        System.out.print(sb);
     }
 
     public static void input() throws Exception {
