@@ -115,7 +115,7 @@ public class Solution {
 	
 	public static int find(int n) {
 		if(n == parents[n]) return n;
-		return find(parents[n]);
+		return parents[n] = find(parents[n]);
 	}
 	
 	public static boolean union(int a, int b) {
