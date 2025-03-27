@@ -94,9 +94,9 @@ public class Solution {
 			
 			parents[i] = i;
 			
-			for(int j=0; j<V; j++) {
+			for(int j=i+1; j<V; j++) {
 				
-				if(i == j) continue;
+	
 				
 				double cost = (Math.pow(x[i]-x[j], 2) + Math.pow(y[i]-y[j], 2)) * E;
 				edgelist.add(new Edge(i, j, cost));
