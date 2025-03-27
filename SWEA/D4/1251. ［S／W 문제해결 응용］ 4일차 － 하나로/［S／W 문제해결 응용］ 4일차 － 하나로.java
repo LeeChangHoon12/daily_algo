@@ -47,6 +47,8 @@ public class Solution {
 
 	public static void main(String[] args) throws Exception {
 		int T = Integer.parseInt(br.readLine());
+		
+		StringBuilder sb = new StringBuilder();
 
 		for (int t = 1; t <= T; t++) {
 			input();
@@ -62,9 +64,12 @@ public class Solution {
 				}
 			}
 			
-			System.out.println("#" + t + " " + Math.round(result));
+			//System.out.println();
+			sb.append("#" + t + " " + Math.round(result) + "\n");
 			
 		}
+		
+		System.out.println(sb.toString());
 	}
 
 	public static void input() throws Exception {
